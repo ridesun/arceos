@@ -3,7 +3,6 @@
 
 void puts(char* s);
 void printf(const char *restrict fmt,...);
-void hello();
 void perror(char* s);
 void putchar(char c);
 
