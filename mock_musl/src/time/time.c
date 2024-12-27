@@ -1,9 +1,8 @@
 #include <time.h>
 #include <libc.h>
-#include <stdio.h>
 #include "../arch/riscv64/bits/limits.h"
 extern unsigned long volatile abi_entry;
-#define SYS_TIMESPEC 4
+
 clock_t clock()
 {
 	struct timespec ts;

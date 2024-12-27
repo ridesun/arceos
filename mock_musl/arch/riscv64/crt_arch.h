@@ -16,5 +16,6 @@ asm(
   ".hidden _DYNAMIC\n\t"
   "lla a1, _DYNAMIC\n\t"
   "andi sp, sp, -16\n\t"
-  "tail " START "_c"
+  "tail " START "_c\n"
+  "ret"
 );

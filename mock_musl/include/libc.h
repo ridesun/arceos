@@ -11,6 +11,10 @@ typedef unsigned short  uint16_t;
 typedef unsigned int    uint32_t;
 typedef unsigned socklen_t;
 
+#define SYS_PUTCHAR 1
+#define SYS_PRINTF 2
+#define SYS_TIMESPEC 3
+
 void abi_call(unsigned long entry,int abi_id,long arg);
 //extern int main(int, char **);
 extern int main();

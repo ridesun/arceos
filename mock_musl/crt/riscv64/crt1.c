@@ -15,14 +15,6 @@ hidden void _start_c(long *p)
 
 //    main(argc, argv);
     main();
-    terminate();
     
 }
-#define SYS_TERMINATE 3
-void terminate(){
-  typedef void (*FnABI)();
-  long *abi_ptr=(long *)(abi_entry +  8 * SYS_TERMINATE);
-	FnABI func = (FnABI)(*abi_ptr);
-	func();
-} 
 

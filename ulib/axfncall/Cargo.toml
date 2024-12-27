@@ -1,0 +1,21 @@
+[package]
+name = "axfncall"
+version.workspace = true
+edition.workspace = true
+authors = ["ridesun <ridesungg@gmail.com>", ]
+license.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[features]
+default = []
+full = ["time", "stdio"]
+time = []
+stdio = []
+[dependencies]
+
+arceos_api = { workspace = true }
+printf-compat = { version = "0.1.1", default-features = false }

@@ -1,6 +1,6 @@
 [package]
 name = "loader"
-edition = "2021"
+edition = "2024"
 version.workspace = true
 authors.workspace = true
 license.workspace = true
@@ -13,4 +13,4 @@ categories.workspace = true
 [dependencies]
 axstd = { workspace = true, optional = true, features = ["alloc"] }
 elf = { version = "0.7.4", default-features = false, features = [] }
-printf-compat = { version = "0.1.1", default-features = false }
+axfncall = { workspace = true, features = ["stdio", "time"] }

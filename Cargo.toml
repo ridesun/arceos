@@ -29,6 +29,7 @@ members = [
     "examples/httpserver",
     "examples/shell",
     "examples/loader",
+    "ulib/axfncall",
 ]
 
 [workspace.package]
@@ -45,6 +46,7 @@ categories = ["os", "no-std"]
 [workspace.dependencies]
 axstd = { path = "ulib/axstd" }
 axlibc = { path = "ulib/axlibc" }
+axfncall = { path = "ulib/axfncall" }
 
 arceos_api = { path = "api/arceos_api" }
 arceos_posix_api = { path = "api/arceos_posix_api" }
