@@ -1,5 +1,5 @@
 use axlog::info;
-use axstd::{println, process::exit};
+use axstd::{print, println, process::exit};
 
 const SYS_HELLO: usize = 1;
 const SYS_PUTCHAR: usize = 2;
@@ -60,14 +60,7 @@ fn abi_hello() {
 }
 
 fn abi_putchar(c: char) {
-    const LEGACY_CONSOLE_PUTCHAR: usize = 1;
-    unsafe {
-        core::arch::asm!(
-            "ecall",
-            in("a7") LEGACY_CONSOLE_PUTCHAR,
-            in("a0") c as usize,
-        );
-    }
+    print!("{}", c);
 }
 
 fn abi_exit() -> ! {

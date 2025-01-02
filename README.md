@@ -10,6 +10,65 @@ ArceOS was inspired a lot by [Unikraft](https://github.com/unikraft/unikraft).
 
 🚧 Working In Progress.
 
+## Enable ArceOS to Support ELF File Execution
+
+ArceOS is a lightweight Unikernel system designed to efficiently run native Linux applications in the ArceOS environment.
+
+### Quick Start
+
+#### Install Dependencies
+
+Ensure Python and the musl cross-compilation environment are installed locally:
+
+1. Verify Python Installation
+
+Run the following command to check if Python is installed:
+
+``` bash
+which python
+```
+If no output is returned, install Python (example for Ubuntu):
+
+``` bash
+sudo apt-get update
+sudo apt-get install python3
+```
+
+2. Install musl Cross-Compilation Environment
+
+Refer to the [musl-cross-make]((https://github.com/richfelker/musl-cross-make.git)):
+
+``` bash
+git clone https://github.com/richfelker/musl-cross-make.git
+cd musl-cross-make
+cp ./config.mak.list ./config.mak
+printf "TARGET = riscv64-linux-musl\nOUTPUT = /opt/musl_riscv64\n" >> config.mak
+sed -i '15i\riscv64-linux-musl' config.mak
+sed -i '22i\OUTPUT = /opt/musl_riscv64' config.mak
+make
+sudo make install
+export PATH=$PATH:/opt/musl_riscv64/bin >> ~/.zshrc
+source ~/.zshrc
+```
+
+Note: If the required tools are already installed, you can skip this step.
+
+### Run the Project
+
+1. Clone the repository and switch to the mocklibc branch:
+
+``` bash
+git clone https://github.com/lkmodel/arceos.git
+cd arceos
+git switch mocklibc
+```
+
+2. Execute the script:
+
+``` bash
+./linux_abi.sh
+```
+
 ## Features & TODOs
 
 * [x] Architecture: x86_64, riscv64, aarch64

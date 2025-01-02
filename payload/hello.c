@@ -8,6 +8,7 @@ void main() {
     putchar('o');
     putchar('1');
     putchar('2');
+    putchar('3');
     putchar('\n');
     exit();
 }

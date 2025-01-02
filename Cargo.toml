@@ -22,6 +22,7 @@ members = [
 
     "ulib/axstd",
     "ulib/axlibc",
+    "ulib/mocklibc",
 
     "examples/helloworld",
     "examples/httpclient",
@@ -65,3 +66,4 @@ axdma = { path = "modules/axdma" }
 
 [profile.release]
 lto = true
+panic = "abort"

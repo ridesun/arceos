@@ -1,0 +1,14 @@
+[package]
+name = "mocklibc"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+name = "mocklibc"
+crate-type = ["staticlib", "cdylib"]
+
+# [profile.release]
+# panic = "abort"
+
+[dependencies]
+
