@@ -1,0 +1,48 @@
+name: Elf Test CI
+
+on: 
+  push:
+    branches: [mocklibc]
+  pull_request:
+    branches: [mocklibc]
+
+env:
+  qemu-version: 8.2.0
+  rust-toolchain: nightly-2024-12-25
+
+jobs:
+  loader-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        arch: [riscv64]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.rust-toolchain }}
+          components: rust-src
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo install cargo-binutils
+      - uses: ./.github/workflows/actions/setup-qemu
+        with:
+          qemu-version: ${{ env.qemu-version }}
+      - uses: ./.github/workflows/actions/setup-musl
+        with:
+          arch: ${{ matrix.arch }}
+      - name: static build
+        run: python build.py static
+        working-directory: ./payload
+      - name: run tests
+        run: |
+          make defconfig ARCH=${{ matrix.arch }}
+          make A=examples/loader ARCH=${{ matrix.arch }} run
+      - name: dynamic build
+        run: python build.py dynamic
+        working-directory: ./payload
+      - name: run tests
+        run: |
+          make defconfig ARCH=${{ matrix.arch }}
+          make A=examples/loader ARCH=${{ matrix.arch }} run
