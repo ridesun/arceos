@@ -35,8 +35,6 @@ jobs:
         with:
           arch: ${{ matrix.arch }}
       - uses: taiki-e/install-action@just
-      - name: Setup Debug Session
-        uses: csexton/debugger-action@master
       - name: Run SQLite sppedtest in Linux
         run: just payload/sqlite_app/
       #      - name: run all apps

@@ -2,7 +2,7 @@ sqlite_version := env_var("SQLITEVERSION")
 zip := ".zip"
 sqlite_src := "sqlite-src-" + sqlite_version
 sqlite_url := "https://www.sqlite.org/2025/" + sqlite_src + zip
-cc := "riscv64-linux-musl-gcc"
+cc := "gcc"
 
 build:
     echo 'Build SQLite3 speedtest'
