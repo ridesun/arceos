@@ -14,7 +14,7 @@ env:
 
 jobs:
   loader-test:
-    runs-on: riscv-builders
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
