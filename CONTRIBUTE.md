@@ -213,6 +213,8 @@ xtask = "run --package xtask --release --"
 + `--qemu-log <QEMU_LOG>`: 是否开启QMEU日志 (日志文件为 "qemu.log"), 默认为`n`。
 + `-t, -ttype <TTYPE>`: 运行测试类型：`static`, `dynamic`, `all`, 默认为`dynamic`。
 + `-s, --snapshot`: 仅审阅编译快照，不运行应用
++ `-b, --blk <BLK>`: 启用QEMU文件系统 (y/n)，默认为`n`
++ `--skip`: 跳过应用编译阶段
 
 也可在应用目录下根据情况进行自行修改`config.toml`
 
